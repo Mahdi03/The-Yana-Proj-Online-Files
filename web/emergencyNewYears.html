@@ -3,12 +3,14 @@
     <head></head>
     <body>
         <p>Testing testing 123</p>
+        <p>Ok well you got a Strava so itss only fail I get a Snapchat</p>
         <script>
-            window.chrome.webview.postMessage("settings"); //Sends message to app host so that it can run the Native API to open a settings window
+            window.chrome.webview.postMessage("load"); //Sends message to app host so that it can run the Native API to open a settings window
             //App lock so that it can only be accessed through the app
             window.chrome.webview.addEventListener('message', function (message) {
                 //Go ahead and unhide the entire website, hide the chalaki message
-                alert(message);
+                alert("Success");
+                console.log(message);
             });
         </script>
     </body>
