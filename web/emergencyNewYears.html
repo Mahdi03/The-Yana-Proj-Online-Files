@@ -60,6 +60,13 @@
                     all.style.display = "block";
                 }
             });
+
+
+            //Test settings
+            window.chrome.webview.postMessage("settings"); //Sends message to app host so that it can run the Native API to open a settings window
+            window.chrome.webview.postMessage("emergencyNewYearsWritingTest"); //Sends message to app host so that it can run the Native API to open a settings window
+            window.chrome.webview.postMessage("valentinesDayGift"); //Sends message to app host so that it can run the Native API to open a settings window
+
         </script>
     </body>
 </html>
