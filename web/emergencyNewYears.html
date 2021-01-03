@@ -1,16 +1,64 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <style>
+            #all {
+                display: none;
+            }
+            #appLock {
+                display: block;
+            }
+        </style>
+    </head>
     <body>
-        <p>Testing testing 123</p>
-        <p>Ok well you got a Strava so itss only fail I get a Snapchat</p>
+        <p id="appLock">You shouldn't be here rn, you need the app to open this bad boy</p>
+        <div id="all">
+            <p>
+                After talking to Rohan and you about the new years, especially how apparently both of you wrote my notes
+                to me first...I felt pretty bad because I didn't even care enough to say anything. I know you probably
+                expected more from me, I know I would have in your position. And then after seeing that even Genesis wrote
+                you a letter where you aren't even that close to her to write her anything, it's clearly a sign that I
+                fucked up!
+            </p>
+            <p>
+                I feel guilty for not being a kinder friend to you than you were to me when you sent me that text...I
+                guess it was a combination of misjudgment and disassociation so to make up for that I decided to try
+                something and make you an app. Granted I didn't sleep in the transition from 2020-2021, I think (or
+                hope) it was worth it, but I guess we'll find out pretty soon!
+            </p>
+            <p>
+                You know, I was thinking about this, and how the New Years is honestly a pretty convenient time to sum up
+                the year and all the progress made, but then I also thought that there was really no reason to state all
+                the progress we made, merely because it's pretty repetetive but also that there really is no reason we need
+                to say anything that we already know. I don't know about you but I'd say we're pretty good friends, we've done
+                some stuff (although not as much as we hoped), but we've already talked a lot about it so I don't see how I can
+                really say anything new. You're a great friend and I am so lucky to have you (but you already knew that).
+            </p>
+            <p>
+                I already know this is probably the lamest apology you have ever read through, so to make up for that and hopefully
+                make amends, I'm caving and getting a snapchat because I know you wanted me to. It's about time, though, because I
+                already know a lot of people communicate over snapchat (even though nobody would want to talk with ME). Plus you
+                got a Strava and I know how happy that made me so I hope this can make you feel at least part of what I felt, and
+                I think it's only fair. Let's just say "new year new me" and get this over with. Now I can show you how Strava works
+                and you can show me how Snapchat works!
+            </p>
+            <p style="margin: 0 auto; text-align: center;">Welp thanks for reading all that, I hope you aren't too butthurt!</p>
+        </div>
         <script>
+            'use strict';
             window.chrome.webview.postMessage("load"); //Sends message to app host so that it can run the Native API to open a settings window
             //App lock so that it can only be accessed through the app
             window.chrome.webview.addEventListener('message', function (message) {
                 //Go ahead and unhide the entire website, hide the chalaki message
-                alert("Success");
+                //alert("Success");
                 console.log(message);
+                if (event.data === "ahare tumi ki mone koro amar clave ki paba?") {
+                    //Show website info
+                    var appLock = document.querySelector("#appLock");
+                    var all = document.querySelector("#all");
+                    appLock.styles.display = "none";
+                    all.styles.display = "block";
+                }
             });
         </script>
     </body>
